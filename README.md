@@ -30,8 +30,8 @@ The script will attempt to install any missing package automatically via `pip`.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/<your-username>/haack-series-generator.git
-   cd haack-series-generator
+   git clone https://github.com/mithunkrish-05/Haack-Series-Nosecone-CAD-Points.git
+   cd Haack-Series-Nosecone-CAD-Points
    ```
 2. (Optional) Create a virtual environment:
 
@@ -46,7 +46,7 @@ The script will attempt to install any missing package automatically via `pip`.
 Run the script:
 
 ```bash
-python generate_body.py
+python Nosecone_CAD_Points.py
 ```
 
 You will be prompted for:
