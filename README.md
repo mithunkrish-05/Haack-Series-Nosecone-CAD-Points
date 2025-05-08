@@ -46,7 +46,7 @@ The script will attempt to install any missing package automatically via `pip`.
 Run the script:
 
 ```bash
-python Nosecone_CAD_Points.py
+python Nosecone_CAD_points.py
 ```
 
 You will be prompted for:
