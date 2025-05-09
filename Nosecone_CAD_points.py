@@ -1,4 +1,4 @@
-# Downloading and Importing libraries
+#Downloading and Importing libraries
 import sys, subprocess
 
 def ensure(pkg):
@@ -15,9 +15,11 @@ import numpy as np
 import scipy
 import matplotlib.pyplot as plt
 import openpyxl
+
+#Sears Series
 def sears_haack(x, L, R):
     return R * (4 * (x/L) * (1 - x/L))**(3/4)
-
+#Haack Series
 def haack_series(x, L, R, C):
     t = np.arccos(1 - 2*x/L)
     return (R/np.sqrt(np.pi)) * np.sqrt(t - 0.5*np.sin(2*t) + C*(np.sin(t)**3))
@@ -32,12 +34,12 @@ def get_float(prompt, default=None):
         except ValueError:
             print(" ↳ please enter a number")
 
-# 1) User inputs
+#User inputs
 L  = get_float("Please enter the Length of the body")
 R  = get_float("Please enter the Maximum Radius of the body")
 tp = input("Body Type: Simple Sears-Haack [S] or Advanced Haack Series [A]? ").strip().lower()
 
-# 2) Branch on type
+#Branch on type
 if tp == 's':
     n = int(get_float("Number of plot points"))
     x = np.linspace(0, L, n)
@@ -79,7 +81,7 @@ elif tp == 'a':
 else:
     raise SystemExit("Invalid body type selected.")
 
-# 3) Plot
+#Plot
 plt.figure()
 plt.plot(x, y, '-o')
 plt.axis('equal')
@@ -89,7 +91,7 @@ plt.title("Axisymmetric Body Profile")
 plt.grid(True)
 plt.show()
 
-# 4) Save to Excel (relative path)
+#Save to Excel (relative path)
 out_dir = input("Relative output directory (will be created if needed) [./output]: ").strip() or "./output"
 out_fn = input("Excel filename [body_points.xlsx]: ").strip() or "body_points.xlsx"
 if not out_fn.lower().endswith(".xlsx"):
@@ -97,7 +99,7 @@ if not out_fn.lower().endswith(".xlsx"):
 os.makedirs(out_dir, exist_ok=True)
 full_path = os.path.join(out_dir, out_fn)
 
-# Build workbook
+#Excel Workbook
 wb = openpyxl.Workbook()
 sheet = wb.active
 sheet['A1'] = 'x'
